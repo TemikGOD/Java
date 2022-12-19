@@ -1,19 +1,28 @@
 package com.example.clockshop;
 
-import java.util.Scanner;
+import jakarta.persistence.*;
 
-public class ClockHMS extends ClockHM
+@Entity
+@Table(name = "ClockShop")
+public class ClockHMS extends ClockHM implements clockInterface
 {
-    private final int numberOfHands = 3;
-    protected int[] time = new int[numberOfHands];
-
-    ClockHMS()
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "name")
+    protected String name;
+    @Column(name = "cost")
+    protected int cost;
+    @Column(name = "time")
+    protected int[] time;
+    public ClockHMS()
     {
         name = "Unknown";
         cost = 0;
+        time = new int[] {10, 15, 10};
     }
 
-    ClockHMS(String _name, int _cost, int[] _time)
+    public ClockHMS(String _name, int _cost, int[] _time)
     {
         name = _name;
         cost = _cost;
@@ -25,6 +34,11 @@ public class ClockHMS extends ClockHM
     }
 
     @Override
+    public void setName(String _name) {
+        name = _name;
+    }
+
+    @Override
     public int getCost() {
         return cost;
     }
@@ -32,6 +46,11 @@ public class ClockHMS extends ClockHM
     @Override
     public int[] getTime() {
         return time;
+    }
+
+    @Override
+    public void setCost(int _cost) {
+        cost = _cost;
     }
     @Override
     public String getTimeAsString()
@@ -45,10 +64,10 @@ public class ClockHMS extends ClockHM
     @Override
     public void setTime(int[] _time)
     {
-        if (_time.length != 3) {
-            if (_time[0] > 23 || time[0] < 0)
+        if (_time.length == 2) {
+            if (_time[0] > 23 || _time[0] < 0)
                 throw new IllegalArgumentException(_time[0] + " > 23 or < 0");
-            else if (time[1] > 59 || time[1] < 0)
+            else if (_time[1] > 59 || _time[1] < 0)
                 throw new IllegalArgumentException(_time[1] + " > 59 or < 0");
             else {
                 time[0] = _time[0];
@@ -57,16 +76,18 @@ public class ClockHMS extends ClockHM
             }
         }
         else
-            if (_time[0] > 23 || time[0] < 0)
-                throw new IllegalArgumentException(_time[0] + " > 23 or < 0");
-            else
-                if (time[1] > 59 || time[1] < 0)
+            if (_time.length == 3) {
+                if (_time[0] > 23 || _time[0] < 0)
+                    throw new IllegalArgumentException(_time[0] + " > 23 or < 0");
+                else if (_time[1] > 59 || _time[1] < 0)
                     throw new IllegalArgumentException(_time[1] + " > 59 or < 0");
-                else
-                if (time[2] > 59 || time[2] < 0)
+                else if (_time[2] > 59 || _time[2] < 0)
                     throw new IllegalArgumentException(_time[2] + " > 59 or < 0");
                 else
                     time = _time;
+            }
+            else
+                throw new IllegalArgumentException("Length of time massive must be 2 or 3");
     }
 
     @Override
@@ -94,16 +115,5 @@ public class ClockHMS extends ClockHM
         System.out.println("Name = " + name);
         System.out.println("Cost = " + cost);
         System.out.println("Time = " + getTimeAsString());
-    }
-
-    @Override
-    public void changeTime()
-    {
-        System.out.println("Input how you want to change time: ");
-        Scanner sc = new Scanner(System.in);
-        int[] _time = new int[time.length];
-        for (int i = 0; i < time.length; i++)
-            _time[i] = sc.nextInt();
-        plusTime(_time);
     }
 }

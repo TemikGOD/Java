@@ -10,9 +10,9 @@ import java.io.IOException;
 public class VisualClockShop extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(VisualClockShop.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(VisualClockShop.class.getResource("ShopV-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 640, 480);
+        stage.setTitle("Clock Shop");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,0 +1,50 @@
+{
+  "ArList": [
+    {
+      "CLASSNAME": "com.example.clockshop.ClockHMS",
+      "DATA": {
+        "name": "Unknown",
+        "cost": 0,
+        "time": [
+          10,
+          15,
+          10
+        ]
+      }
+    },
+    {
+      "CLASSNAME": "com.example.clockshop.ClockHM",
+      "DATA": {
+        "name": "Unknown",
+        "cost": 0,
+        "time": [
+          10,
+          12
+        ]
+      }
+    },
+    {
+      "CLASSNAME": "com.example.clockshop.ClockHM",
+      "DATA": {
+        "name": "Abiba",
+        "cost": 55565,
+        "time": [
+          22,
+          33
+        ]
+      }
+    },
+    {
+      "CLASSNAME": "com.example.clockshop.ClockHMS",
+      "DATA": {
+        "name": "Aboba",
+        "cost": 546400,
+        "time": [
+          22,
+          55,
+          59
+        ]
+      }
+    }
+  ]
+}

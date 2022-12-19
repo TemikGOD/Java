@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clockshop.VisualController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="85.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="114.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+   </rowConstraints>
+   <Button fx:id="btnWB" mnemonicParsing="false" onAction="#btnWBClick" prefHeight="25.0" prefWidth="124.0" text="Print watch brands" GridPane.rowIndex="5" />
+   <Button fx:id="btnMCWB" mnemonicParsing="false" onAction="#btnMCWBClick" text="Print the name of the most common watch brand" GridPane.rowIndex="6" />
+   <Button fx:id="btnSetTime" mnemonicParsing="false" onAction="#btnSetTimeClick" text="Set the time on all clocks" GridPane.rowIndex="4" />
+   <Button fx:id="btnDescription" mnemonicParsing="false" onAction="#btnDescriptionClick" text="Print a description of the most expensive watches" GridPane.rowIndex="3" />
+   <Label text="Description" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   <TextField fx:id="textFieldSetTime" promptText="Enter the time in hh.mm.ss format" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+   <TextArea fx:id="textFieldDescription" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Here will be the description" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   <TextField fx:id="textFieldMCWB" editable="false" promptText="Here will be the name" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+   <TextArea fx:id="textWB" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Here will be the watch brands" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+   <GridPane GridPane.rowIndex="2">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Button fx:id="btnOpenShop" mnemonicParsing="false" onAction="#btnOpenShopClick" text="Open Shop" />
+         <TextField fx:id="textFieldOpenShop" promptText="Name of saved shop" GridPane.columnIndex="1" />
+      </children>
+   </GridPane>
+   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <Button fx:id="btnSaveShop1" mnemonicParsing="false" onAction="#btnSaveShopClick" text="Save Shop" />
+         <TextField fx:id="textFieldSaveShop" promptText="Name of the store being saved" GridPane.columnIndex="1" />
+      </children>
+   </GridPane>
+   <GridPane GridPane.rowIndex="1">
+      <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <Button fx:id="btnOpenShopG" mnemonicParsing="false" onAction="#btnOpenShopGClick" text="Open Shop(Gson)" />
+         <TextField fx:id="textFieldOpenShopG" promptText="Name of saved shop" GridPane.columnIndex="1" />
+      </children>
+   </GridPane>
+   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <Button fx:id="btnSaveShopG" mnemonicParsing="false" onAction="#btnSaveShopGClick" text="Save Shop(Gson)" />
+         <TextField fx:id="textFieldSaveShopG" promptText="Name of the store being saved" GridPane.columnIndex="1" />
+      </children>
+   </GridPane>
+   <Button fx:id="btnLFBD" mnemonicParsing="false" onAction="#btnLFBDClick" text="Load from BD" />
+   <Button fx:id="btnLSTDC" mnemonicParsing="false" onAction="#btnSTBDClick" text="Save to BD" GridPane.columnIndex="1" />
+</GridPane>
