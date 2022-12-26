@@ -23,8 +23,7 @@ public class HibernateSessionFactoryUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();
-                configuration.addAnnotatedClass(ClockHM.class);
-                configuration.addAnnotatedClass(ClockHMS.class);
+                configuration.addAnnotatedClass(ClockShopEnt.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 

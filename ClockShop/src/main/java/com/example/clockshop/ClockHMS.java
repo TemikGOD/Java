@@ -2,19 +2,8 @@ package com.example.clockshop;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "ClockShop")
-public class ClockHMS extends ClockHM implements clockInterface
+public class ClockHMS extends ClockHM
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "name")
-    protected String name;
-    @Column(name = "cost")
-    protected int cost;
-    @Column(name = "time")
-    protected int[] time;
     public ClockHMS()
     {
         name = "Unknown";

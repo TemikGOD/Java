@@ -4,18 +4,12 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
-@Entity
-@Table (name = "ClockShop")
+
 public class ClockHM implements clockInterface, Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "name")
+
     protected String name;
-    @Column(name = "cost")
     protected int cost;
-    @Column(name = "time")
     protected int[] time;
 
     public ClockHM() {

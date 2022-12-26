@@ -126,6 +126,7 @@ public class VisualController {
         try (PrintWriter out = new PrintWriter(textFieldSaveShopG.getText())) {
             String save = gson.toJson(Shop);
             out.println(save);
+            out.close();
             System.out.println(save);
         }
         catch (FileNotFoundException e){
@@ -134,15 +135,20 @@ public class VisualController {
     }
 
     public void btnLFBDClick(ActionEvent actionEvent) throws SQLException {
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(clockInterface.class, new InterfaceAdapter());
+        Gson gson = builder.setPrettyPrinting().create();
         ClockService clockService = new ClockService();
-        Shop.setArList(clockService.findAllClocks());
+        Shop = gson.fromJson(clockService.findClock(4).getShop(), Shop.getClass());
     }
 
     public void btnSTBDClick(ActionEvent actionEvent) throws SQLException {
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(clockInterface.class, new InterfaceAdapter());
+        Gson gson = builder.setPrettyPrinting().create();
+        String save = gson.toJson(Shop);
         ClockService clockService = new ClockService();
-        for (clockInterface o: Shop.ArList) {
-            //clockService.saveClock(o);
-            clockService.updateClock(o);
+        ClockShopEnt saving = new ClockShopEnt(save);
+        clockService.saveClock(saving);
         }
-    }
 }

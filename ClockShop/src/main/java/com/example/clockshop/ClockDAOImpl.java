@@ -8,11 +8,11 @@ import java.util.List;
 
 public class ClockDAOImpl {
 
-    public clockInterface findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(clockInterface.class, id);
+    public ClockShopEnt findById(int id) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(ClockShopEnt.class, id);
     }
 
-    public void save(clockInterface clock) {
+    public void save(ClockShopEnt clock) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(clock);
@@ -20,24 +20,24 @@ public class ClockDAOImpl {
         session.close();
     }
 
-    public void update(clockInterface clock) {
+    /*public void update(int id) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        session.update(clock);
+        session.update();
         //tx1.commit();
         session.close();
-    }
+    }*/
 
-    public void delete(clockInterface clock) {
+    /*public void delete(ClockShop clock) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(clock);
         tx1.commit();
         session.close();
-    }
+    }*/
 
-    public List<clockInterface> findAll() {
-        List<clockInterface> clocks = (List<clockInterface>)HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from ClockHM ").list();
+    /*public List<ClockShop> findAll() {
+        List<ClockShop> clocks = (List<ClockShop>)HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from").list();
         return clocks;
-    }
+    }*/
 }

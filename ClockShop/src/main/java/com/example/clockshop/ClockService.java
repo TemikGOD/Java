@@ -1,8 +1,5 @@
 package com.example.clockshop;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ClockService {
 
     private ClockDAOImpl clockDAO = new ClockDAOImpl();
@@ -10,24 +7,24 @@ public class ClockService {
     public ClockService() {
     }
 
-    public clockInterface findClock(int id) {
+    public ClockShopEnt findClock(int id) {
         return clockDAO.findById(id);
     }
 
-    public void saveClock(clockInterface clock) {
+    public void saveClock(ClockShopEnt clock) {
         clockDAO.save(clock);
     }
 
-    public void deleteClock(clockInterface clock) {
-        clockDAO.delete(clock);
+    /*public void deleteClock(int id) {
+        clockDAO.delete(id);
     }
 
-    public void updateClock(clockInterface clock) {
-        clockDAO.update(clock);
-    }
+    public void updateClock(int id) {
+        clockDAO.update(id);
+    }*/
 
-    public List<clockInterface> findAllClocks() {
+    /*public List<ClockShop> findAllClocks() {
         return clockDAO.findAll();
-    }
+    }*/
 
 }
